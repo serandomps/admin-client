@@ -1,0 +1,23 @@
+<form>
+    {@blocks block="select" id=_.container name="status" value=status options=_.statuses/}
+</form>
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Created</th>
+        <th scope="col">View</th>
+        <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {#vehicles}
+    <tr>
+        <td>{_.make.title} {_.model.title}<small class="text-muted"> {manufacturedAt|year}</small></td>
+        <td>{createdAt}</td>
+        <td><a href="/vehicles/{id}">View</a></td>
+        <td><a href="/vehicles/{id}/edit">Edit</a></td>
+    </tr>
+    {/vehicles}
+    </tbody>
+</table>

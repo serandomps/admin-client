@@ -1,0 +1,43 @@
+{
+    "name": "admin-client",
+    "description": "admin-client",
+    "dependencies": {
+        "visionmedia/page.js": "*",
+        "serandomps/dust": "master",
+        "serandomps/serand": "master",
+        "serandomps/auth": "master",
+        "serandomps/user": "master",
+        "serandomps/utils": "master",
+        "serandomps/token": "master",
+        "serandomps/home": "master",
+        "serandomps/captcha": "master",
+        "serandomps/form": "master",
+        "serandomps/validators": "master",
+        "serandomps/breadcrumb": "master",
+        "serandomps/navigation": "master",
+        "serandomps/locate": "master",
+        "serandomps/contacts": "master",
+        "serandomps/locations": "master",
+        "serandomps/upload": "master",
+        "serandomps/vehicles": "master",
+        "serandomps/gallery": "master"
+    },
+    "scripts": [
+        "index.js",
+        "navigation/index.js",
+        "home/index.js",
+        "vehicles/index.js",
+        "status/index.js"
+    ],
+    "styles": [
+        "index.css",
+        "home/styles.css",
+        "status/styles.css"
+    ],
+    "templates": [
+        "home/template.html",
+        "vehicles/template.html",
+        "status/template.html"
+    ],
+    "main": "index.js"
+}
