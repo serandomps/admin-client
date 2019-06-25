@@ -85,12 +85,12 @@ module.exports = function (ctx, container, options, done) {
                 createdAt: 1
             },
             query: {
-                permissions: permitted()
+                status: 'reviewing'
             },
             resolution: '288x162'
         }, function (err, vehicles) {
             if (err) return done(err);
-            dust.render('admin-vehicles', {
+            dust.render('admin-vehicles', serand.pack({
                 _: {
                     statuses: [
                         {label: 'Pending', value: 'pending'},
@@ -98,7 +98,7 @@ module.exports = function (ctx, container, options, done) {
                     ]
                 },
                 vehicles: vehicles
-            }, function (err, out) {
+            }, container), function (err, out) {
                 if (err) {
                     return done(err);
                 }
