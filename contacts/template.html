@@ -1,0 +1,23 @@
+<form>
+    {@blocks block="select" id=_.container name="status" value=status options=_.statuses/}
+</form>
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Created</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Review</th>
+    </tr>
+    </thead>
+    <tbody>
+    {#contacts}
+    <tr>
+        <td>{name}</td>
+        <td>{createdAt}</td>
+        <td><a href="/contacts/{id}/edit">Edit</a></td>
+        <td><a href="/contacts/{id}/review">Review</a></td>
+    </tr>
+    {/contacts}
+    </tbody>
+</table>

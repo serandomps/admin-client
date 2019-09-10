@@ -26,7 +26,8 @@
         "navigation/index.js",
         "home/index.js",
         "vehicles/index.js",
-        "status/index.js"
+        "status/index.js",
+        "contacts/index.js"
     ],
     "styles": [
         "index.css",
@@ -36,7 +37,8 @@
     "templates": [
         "home/template.html",
         "vehicles/template.html",
-        "status/template.html"
+        "status/template.html",
+        "contacts/template.html"
     ],
     "main": "index.js"
 }
