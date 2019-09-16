@@ -46,7 +46,7 @@ module.exports = function (ctx, container, options, done) {
     });
 };
 
-serand.on('user', 'ready', function (token) {
+utils.on('user', 'ready', function (token) {
     ready = true;
     if (!context) {
         return;
