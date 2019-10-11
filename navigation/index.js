@@ -6,20 +6,34 @@ var context;
 
 var ready = false;
 
-var render = function (done) {
-    $.ajax({
-        url: utils.resolve('accounts:///apis/v/menus/2'),
-        dataType: 'json',
-        success: function (links) {
-            done(null, links);
-        },
-        error: function (xhr, status, err) {
-            done(err || status || xhr);
+var render = function (token, done) {
+    async.parallel({
+        admin: function (parallelDone) {
+            if (!token) {
+                return parallelDone();
+            }
+            utils.menus('admin', parallelDone);
         }
+    }, function (err, menus) {
+        if (err) {
+            return done(err);
+        }
+        done(null, {
+            root: {url: 'www://', title: 'serandives'},
+            home: {url: '/', title: 'admin'},
+            global: [],
+            local: menus.admin,
+            user: [
+                {url: 'accounts://', title: 'Account'}
+            ]
+        });
     });
 };
 
 var filter = function (options, token, links) {
+    links.fixed = true;
+    links.background = 'bg-secondary';
+    links.color = 'navbar-dark';
     if (token) {
         return links;
     }
@@ -38,7 +52,7 @@ module.exports = function (ctx, container, options, done) {
     if (!ready) {
         return;
     }
-    render(function(err, links) {
+    render(ctx.token, function(err, links) {
         if (err) {
             return done(err);
         }
@@ -51,7 +65,7 @@ utils.on('user', 'ready', function (token) {
     if (!context) {
         return;
     }
-    render(function(err, links) {
+    render(token, function(err, links) {
         if (err) {
             return context.done(err);
         }

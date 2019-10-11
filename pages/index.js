@@ -2,10 +2,10 @@ var dust = require('dust')();
 var serand = require('serand');
 var utils = require('utils');
 var form = require('form');
-var vehicles = require('vehicles');
-var Vehicles = vehicles.service;
+var pages = require('pages');
+var Pages = pages.service;
 
-dust.loadSource(dust.compile(require('./template'), 'admin-vehicles'));
+dust.loadSource(dust.compile(require('./template'), 'admin-pages'));
 
 var from = function (o) {
     var oo = {};
@@ -47,13 +47,13 @@ var configs = {
                         if (err) {
                             return console.error(err);
                         }
-                        serand.redirect('/manage-vehicles' + utils.toQuery(query));
+                        serand.redirect('/manage-pages' + utils.toQuery(query));
                     });
                 }
             }, done);
         }
     }
-}
+};
 
 module.exports = function (ctx, container, options, done) {
     var sandbox = container.sandbox;
@@ -61,43 +61,21 @@ module.exports = function (ctx, container, options, done) {
         if (err) {
             return done(err);
         }
-        groups = _.keyBy(groups, 'name');
-
-        var permitted = function () {
-            var permissions = {}
-            var matcher = [{
-                group: groups.public.id,
-                action: {
-                    $in: ['read']
-                }
-            }]
-            var status = options.query && options.query.status || 'pending';
-            if (status === 'pending') {
-                permissions.$nor = matcher;
-                return permissions;
-            }
-            permissions.$or = matcher;
-            return permissions;
-        };
-
-        Vehicles.find({
+        Pages.find({
             sort: {
                 createdAt: 1
             },
-            query: {
-                status: 'reviewing'
-            },
-            resolution: '288x162'
-        }, function (err, vehicles) {
+            query: {}
+        }, function (err, pages) {
             if (err) return done(err);
-            dust.render('admin-vehicles', serand.pack({
+            dust.render('admin-pages', serand.pack({
                 _: {
                     statuses: [
                         {label: 'Pending', value: 'pending'},
                         {label: 'Approved', value: 'approved'}
                     ]
                 },
-                vehicles: vehicles
+                pages: pages
             }, container), function (err, out) {
                 if (err) {
                     return done(err);
@@ -111,7 +89,7 @@ module.exports = function (ctx, container, options, done) {
                     }
                     done(null, {
                         clean: function () {
-                            $('.admin-vehicles', sandbox).remove();
+                            $('.admin-pages', sandbox).remove();
                         }
                     });
                 });

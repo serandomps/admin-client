@@ -5,18 +5,20 @@
     <thead>
     <tr>
         <th scope="col">Title</th>
-        <th scope="col">Created</th>
+        <th scope="col">Status</th>
         <th scope="col">Edit</th>
         <th scope="col">Review</th>
+        <th scope="col">Transit</th>
     </tr>
     </thead>
     <tbody>
     {#contacts}
     <tr>
         <td>{name}</td>
-        <td>{createdAt}</td>
+        <td><span class="badge badge-secondary text-capitalize pull-left">{status}</span></td>
         <td><a href="/contacts/{id}/edit">Edit</a></td>
         <td><a href="/contacts/{id}/review">Review</a></td>
+        <td><a href="/transits/{id}?domain=accounts&model=contacts&id={id}&status={status}&location=/manage-contacts">Transit</a></td>
     </tr>
     {/contacts}
     </tbody>

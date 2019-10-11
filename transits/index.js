@@ -2,10 +2,8 @@ var dust = require('dust')();
 var serand = require('serand');
 var utils = require('utils');
 var form = require('form');
-var contacts = require('contacts');
-var Contacts = contacts.service;
 
-dust.loadSource(dust.compile(require('./template'), 'admin-contacts'));
+dust.loadSource(dust.compile(require('./template'), 'admin-transits'));
 
 var from = function (o) {
     var oo = {};
@@ -47,7 +45,7 @@ var configs = {
                         if (err) {
                             return console.error(err);
                         }
-                        serand.redirect('/manage-contacts' + utils.toQuery(query));
+                        serand.redirect('/manage-transits' + utils.toQuery(query));
                     });
                 }
             }, done);
@@ -57,44 +55,43 @@ var configs = {
 
 module.exports = function (ctx, container, options, done) {
     var sandbox = container.sandbox;
-    utils.configs('groups', function (err, groups) {
+    var status = options.status;
+    utils.workflow('model', function (err, workflow) {
         if (err) {
             return done(err);
         }
-        Contacts.find({
-            sort: {
-                createdAt: 1
-            },
-            query: {
-                status: 'reviewing'
+        var transitions = workflow.transitions[status];
+        var o = serand.pack({
+            model: options.model,
+            id: options.id,
+            status: options.status,
+            location: options.location,
+            actions: transitions
+        }, container)
+        dust.render('admin-transits', o, function (err, out) {
+            if (err) {
+                return done(err);
             }
-        }, function (err, contacts) {
-            if (err) return done(err);
-            dust.render('admin-contacts', serand.pack({
-                _: {
-                    statuses: [
-                        {label: 'Pending', value: 'pending'},
-                        {label: 'Approved', value: 'approved'}
-                    ]
-                },
-                contacts: contacts
-            }, container), function (err, out) {
-                if (err) {
-                    return done(err);
-                }
-                var query = _.cloneDeep(options.query) || {};
-                var elem = sandbox.append(out);
-                var filters = form.create(container.id, elem, configs);
-                filters.render(ctx, from(query), function (err) {
+            var elem = sandbox.append(out);
+            $('.actions', elem).on('click', '.transit', function () {
+                var thiz = $(this);
+                var action = thiz.data('action');
+                utils.loading(500);
+                utils.transit(options.domain, options.model, options.id, action, function (err) {
+                    utils.loaded();
                     if (err) {
-                        return done(err);
+                        return console.error(err);
                     }
-                    done(null, {
-                        clean: function () {
-                            $('.admin-contacts', sandbox).remove();
-                        }
-                    });
+                    var location = '/transits/' + options.id + '?domain=' + options.domain +
+                        '&model=' + options.model + '&status=' + transitions[action] + '&location=' + options.location;
+                    serand.redirect(location);
                 });
+            });
+            $('.actions', elem).on('click', '.cancel', function () {
+                serand.redirect(options.location);
+            });
+            done(null, function () {
+                $('.admin-transits', sandbox).remove();
             });
         });
     });

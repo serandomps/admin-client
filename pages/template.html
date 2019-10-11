@@ -1,0 +1,49 @@
+<div class="actions">
+    <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                data-target="#navbar-vehicles-findone-{_.container}"
+                aria-controls="navbar-vehicles-findone-{_.container}" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-vehicles-findone-{_.container}">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link edit" href="/create-pages">
+                        <i class="fas fa-plus-circle fa-fw text-primary mr-1"></i> Create
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="manage">
+    <form class="hidden">
+        {@blocks block="select" id=_.container name="status" value=status options=_.statuses/}
+    </form>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Status</th>
+            <th scope="col">View</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Review</th>
+            <th scope="col">Transit</th>
+        </tr>
+        </thead>
+        <tbody>
+        {#pages}
+        <tr>
+            <td>{title}</td>
+            <td><span class="badge badge-secondary text-capitalize pull-left">{status}</span></td>
+            <td><a href="/pages/{id}">View</a></td>
+            <td><a href="/pages/{id}/edit">Edit</a></td>
+            <td><a href="/pages/{id}/review">Review</a></td>
+            <td><a href="/transits/{id}?domain=accounts&model=pages&id={id}&status={status}&location=/manage-pages">Transit</a></td>
+        </tr>
+        {/pages}
+        </tbody>
+    </table>
+</div>

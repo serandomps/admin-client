@@ -6,22 +6,20 @@
     <tr>
         <th scope="col">Title</th>
         <th scope="col">Status</th>
-        <th scope="col">View</th>
         <th scope="col">Edit</th>
         <th scope="col">Review</th>
         <th scope="col">Transit</th>
     </tr>
     </thead>
     <tbody>
-    {#vehicles}
+    {#contacts}
     <tr>
-        <td>{_.make.title} {_.model.title}<small class="text-muted"> {manufacturedAt|year}</small></td>
+        <td>{name}</td>
         <td><span class="badge badge-secondary text-capitalize pull-left">{status}</span></td>
-        <td><a href="/vehicles/{id}">View</a></td>
-        <td><a href="/vehicles/{id}/edit">Edit</a></td>
-        <td><a href="/vehicles/{id}/review">Review</a></td>
-        <td><a href="/transits/{id}?domain=accounts&model=configs&id={id}&status={status}&location=/manage-configs">Transit</a></td>
+        <td><a href="/contacts/{id}/edit">Edit</a></td>
+        <td><a href="/contacts/{id}/review">Review</a></td>
+        <td><a href="/transits/{id}?domain=accounts&model=locations&id={id}&status={status}&location=/manage-locations">Transit</a></td>
     </tr>
-    {/vehicles}
+    {/contacts}
     </tbody>
 </table>

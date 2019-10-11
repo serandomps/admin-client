@@ -2,10 +2,10 @@ var dust = require('dust')();
 var serand = require('serand');
 var utils = require('utils');
 var form = require('form');
-var vehicles = require('vehicles');
-var Vehicles = vehicles.service;
+var configs = require('configs');
+var Pages = configs.service;
 
-dust.loadSource(dust.compile(require('./template'), 'admin-vehicles'));
+dust.loadSource(dust.compile(require('./template'), 'admin-configs'));
 
 var from = function (o) {
     var oo = {};
@@ -33,7 +33,7 @@ var findQuery = function (vform, done) {
 };
 
 
-var configs = {
+var statusConfig = {
     status: {
         find: function (context, source, done) {
             serand.blocks('select', 'find', source, done);
@@ -47,13 +47,13 @@ var configs = {
                         if (err) {
                             return console.error(err);
                         }
-                        serand.redirect('/manage-vehicles' + utils.toQuery(query));
+                        serand.redirect('/manage-configs' + utils.toQuery(query));
                     });
                 }
             }, done);
         }
     }
-}
+};
 
 module.exports = function (ctx, container, options, done) {
     var sandbox = container.sandbox;
@@ -61,57 +61,35 @@ module.exports = function (ctx, container, options, done) {
         if (err) {
             return done(err);
         }
-        groups = _.keyBy(groups, 'name');
-
-        var permitted = function () {
-            var permissions = {}
-            var matcher = [{
-                group: groups.public.id,
-                action: {
-                    $in: ['read']
-                }
-            }]
-            var status = options.query && options.query.status || 'pending';
-            if (status === 'pending') {
-                permissions.$nor = matcher;
-                return permissions;
-            }
-            permissions.$or = matcher;
-            return permissions;
-        };
-
-        Vehicles.find({
+        Pages.find({
             sort: {
                 createdAt: 1
             },
-            query: {
-                status: 'reviewing'
-            },
-            resolution: '288x162'
-        }, function (err, vehicles) {
+            query: {}
+        }, function (err, configs) {
             if (err) return done(err);
-            dust.render('admin-vehicles', serand.pack({
+            dust.render('admin-configs', serand.pack({
                 _: {
                     statuses: [
                         {label: 'Pending', value: 'pending'},
                         {label: 'Approved', value: 'approved'}
                     ]
                 },
-                vehicles: vehicles
+                configs: configs
             }, container), function (err, out) {
                 if (err) {
                     return done(err);
                 }
                 var query = _.cloneDeep(options.query) || {};
                 var elem = sandbox.append(out);
-                var filters = form.create(container.id, elem, configs);
+                var filters = form.create(container.id, elem, statusConfig);
                 filters.render(ctx, from(query), function (err) {
                     if (err) {
                         return done(err);
                     }
                     done(null, {
                         clean: function () {
-                            $('.admin-vehicles', sandbox).remove();
+                            $('.admin-configs', sandbox).remove();
                         }
                     });
                 });

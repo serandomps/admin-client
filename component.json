@@ -17,6 +17,8 @@
         "serandomps/navigation": "master",
         "serandomps/contacts": "master",
         "serandomps/locations": "master",
+        "serandomps/configs": "master",
+        "serandomps/pages": "master",
         "serandomps/upload": "master",
         "serandomps/vehicles": "master",
         "serandomps/gallery": "master"
@@ -26,19 +28,24 @@
         "navigation/index.js",
         "home/index.js",
         "vehicles/index.js",
-        "status/index.js",
-        "contacts/index.js"
+        "contacts/index.js",
+        "locations/index.js",
+        "transits/index.js",
+        "pages/index.js",
+        "configs/index.js"
     ],
     "styles": [
         "index.css",
-        "home/styles.css",
-        "status/styles.css"
+        "home/styles.css"
     ],
     "templates": [
         "home/template.html",
         "vehicles/template.html",
-        "status/template.html",
-        "contacts/template.html"
+        "contacts/template.html",
+        "locations/template.html",
+        "transits/template.html",
+        "pages/template.html",
+        "configs/template.html"
     ],
     "main": "index.js"
 }
