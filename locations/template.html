@@ -12,14 +12,14 @@
     </tr>
     </thead>
     <tbody>
-    {#contacts}
+    {#locations}
     <tr>
         <td>{name}</td>
         <td><span class="badge badge-secondary text-capitalize pull-left">{status}</span></td>
-        <td><a href="/contacts/{id}/edit">Edit</a></td>
-        <td><a href="/contacts/{id}/review">Review</a></td>
+        <td><a href="/locations/{id}/edit">Edit</a></td>
+        <td><a href="/locations/{id}/review">Review</a></td>
         <td><a href="/transits/{id}?domain=accounts&model=locations&id={id}&status={status}&location=/manage-locations">Transit</a></td>
     </tr>
-    {/contacts}
+    {/locations}
     </tbody>
 </table>

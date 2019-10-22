@@ -1,0 +1,264 @@
+<div class="row mt-4">
+    <div class="col-md mb-3">
+        <div class="media">
+            <span class="btn rounded-circle mr-2">
+              <span class="fas fa-calendar fa-fw fa-2x"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Year</h4>
+                <span class="h4 text-capitalize">{manufacturedAt|year}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mb-3">
+        <div class="media">
+            <span class="btn rounded-circle mr-2">
+              <span class="fas fa-tachometer-alt fa-fw fa-2x"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Mileage</h4>
+                <span class="h4 text-capitalize">{mileage}</span>
+                <small class="text-muted">km</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mb-3">
+        <div class="media">
+            <span class="btn rounded-circle mr-2">
+              <span class="fas fa-cogs fa-fw fa-2x"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Transmission</h4>
+                <span class="h4 text-capitalize">{transmission}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mb-3">
+        <div class="media">
+            <span class="btn rounded-circle mr-2">
+              <span class="fas fa-money-check-alt fa-fw fa-2x"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Price</h4>
+                <span class="h4 text-capitalize">{price}</span>
+                <small class="text-muted">LKR</small>
+            </div>
+        </div>
+    </div>
+</div>
+<hr/>
+<div class="row mt-4">
+    <div class="col-md mb-3">
+        <div class="media">
+            <span class="btn rounded-circle mr-2">
+              <span class="fas fa-building fa-fw"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Make</h4>
+                <span class="text-capitalize">{_.make.title}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mb-3">
+        <div class="media">
+            <span class="btn rounded-circle mr-2">
+              <span class="fas fa-tag fa-fw"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Model</h4>
+                <span class="text-capitalize">{_.model.title}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mb-3">
+        <div class="media">
+            <span class="btn rounded-circle mr-2">
+              <span class="fas fa-battery-full fa-fw"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Condition</h4>
+                <span class="text-capitalize">{condition}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mb-3">
+        <div class="media">
+            <span class="btn rounded-circle mr-2">
+              <span class="fas fa-tint fa-fw"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Color</h4>
+                <span class="text-capitalize">{color}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mb-3">
+        <div class="media">
+            <span class="btn rounded-circle mr-2">
+              <span class="fas fa-gas-pump fa-fw"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Fuel</h4>
+                <span class="text-capitalize">{fuel}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md">
+        <div class="card border-0">
+            <div class="row no-gutters">
+                <div class="col-md-3 text-center">
+                    <span class="fas fa-map-marker-alt fa-5x mt-md-5"></span>
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h4 class="h4 text-secondary mb-3">Location
+                            <button type="button" class="location-ok btn btn-link {?_.locationOK}text-success{:else}text-primary{/_.locationOK}">
+                                <i class="far fa-check-circle fa-2x"></i>
+                            </button>
+                            {^_.locationOK}
+                            <button type="button" class="location-bad btn btn-link text-danger">
+                                <i class="far fa-times-circle fa-2x"></i>
+                            </button>
+                            {/_.locationOK}
+                        </h4>
+                        <div class="location-info">
+                            {?_.location.name}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <span class="text-muted">Name:</span> {_.location.name}
+                                </div>
+                            </div>
+                            {/_.location.name}
+                            {?_.location.line1}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <span class="text-muted">Line 1:</span> {_.location.line1}
+                                </div>
+                            </div>
+                            {/_.location.line1}
+                            {?_.location.line2}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <span class="text-muted">Line 2:</span> {_.location.line2}
+                                </div>
+                            </div>
+                            {/_.location.line2}
+                            {?_.location.city}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <span class="text-muted">City:</span> {_.location.city}
+                                </div>
+                            </div>
+                            {/_.location.city}
+                            {?_.location.postal}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <span class="text-muted">Postal:</span> {_.location.postal}
+                                </div>
+                            </div>
+                            {/_.location.postal}
+                            {?_.location.district}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <span class="text-muted">District:</span> {_.location.district}
+                                </div>
+                            </div>
+                            {/_.location.district}
+                            {?_.location.province}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <span class="text-muted">Province:</span> {_.location.province}
+                                </div>
+                            </div>
+                            {/_.location.province}
+                            {?_.location.state}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <span class="text-muted">State:</span> {_.location.state}
+                                </div>
+                            </div>
+                            {/_.location.state}
+                            {?_.location.country}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <span class="text-muted">Country:</span> {_.location.country}
+                                </div>
+                            </div>
+                            {/_.location.country}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card border-0">
+            <div class="row no-gutters">
+                <div class="col-md-3 text-center">
+                    <span class="fas fa-mobile-alt fa-5x mt-md-5"></span>
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h4 class="h4 text-secondary mb-3">Contacts
+                            <button type="button" class="contact-ok btn btn-link {?_.contactOK}text-success{:else}text-primary{/_.contactOK}">
+                                <i class="far fa-check-circle fa-2x"></i>
+                            </button>
+                            {^_.contactOK}
+                            <button type="button" class="contact-bad btn btn-link text-danger">
+                                <i class="far fa-times-circle fa-2x"></i>
+                            </button>
+                            {/_.contactOK}
+                        </h4>
+                        <div class="contacts-info">
+                            {?_.contact.phones}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1"><i class="fas fa-phone fa-fw"></i></div>
+                                {#_.contact.phones}
+                                <div class="p-1">{.}</div>
+                                {/_.contact.phones}
+                            </div>
+                            {/_.contact.phones}
+                            {?_.contact.email}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <i class="fas fa-envelope fa-fw mr-2"></i>{_.contact.email}
+                                </div>
+                            </div>
+                            {/_.contact.email}
+                            {?_.contact.viber}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <i class="fab fa-viber fa-fw mr-2"></i>{_.contact.viber}
+                                </div>
+                            </div>
+                            {/_.contact.viber}
+                            {?_.contact.whatsapp}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <i class="fab fa-whatsapp fa-fw mr-2"></i>{_.contact.whatsapp}
+                                </div>
+                            </div>
+                            {/_.contact.whatsapp}
+                            {?_.contact.messenger}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <i class="fab fa-facebook-messenger fa-fw mr-2"></i>{_.contact.messenger}
+                                </div>
+                            </div>
+                            {/_.contact.messenger}
+                            {?_.contact.skype}
+                            <div class="d-flex justify-content-start">
+                                <div class="p-1">
+                                    <i class="fab fa-skype fa-fw mr-2"></i>{_.contact.skype}
+                                </div>
+                            </div>
+                            {/_.contact.skype}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

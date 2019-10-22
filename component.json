@@ -32,7 +32,10 @@
         "locations/index.js",
         "transits/index.js",
         "pages/index.js",
-        "configs/index.js"
+        "configs/index.js",
+        "vehicles-review/index.js",
+        "contacts-review/index.js",
+        "locations-review/index.js"
     ],
     "styles": [
         "index.css",
@@ -45,7 +48,13 @@
         "locations/template.html",
         "transits/template.html",
         "pages/template.html",
-        "configs/template.html"
+        "configs/template.html",
+        "vehicles-review/template.html",
+        "vehicles-review/details.html",
+        "contacts-review/template.html",
+        "contacts-review/actions.html",
+        "locations-review/template.html",
+        "locations-review/actions.html"
     ],
     "main": "index.js"
 }
