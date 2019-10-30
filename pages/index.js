@@ -47,7 +47,7 @@ var configs = {
                         if (err) {
                             return console.error(err);
                         }
-                        serand.redirect('/manage-pages' + utils.toQuery(query));
+                        serand.redirect('/manage-pages?' + utils.toQuery(query));
                     });
                 }
             }, done);

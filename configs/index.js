@@ -47,7 +47,7 @@ var statusConfig = {
                         if (err) {
                             return console.error(err);
                         }
-                        serand.redirect('/manage-configs' + utils.toQuery(query));
+                        serand.redirect('/manage-configs?' + utils.toQuery(query));
                     });
                 }
             }, done);
