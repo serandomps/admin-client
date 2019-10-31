@@ -63,7 +63,7 @@ module.exports = function (ctx, container, options, done) {
         }
         Contacts.find({
             sort: {
-                createdAt: 1
+                updatedAt: 1
             },
             query: {
                 status: 'reviewing'

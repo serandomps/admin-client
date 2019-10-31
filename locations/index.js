@@ -63,7 +63,7 @@ module.exports = function (ctx, container, options, done) {
         }
         Locations.find({
             sort: {
-                createdAt: 1
+                updatedAt: 1
             },
             query: {
                 status: 'reviewing'

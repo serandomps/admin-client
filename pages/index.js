@@ -63,7 +63,7 @@ module.exports = function (ctx, container, options, done) {
         }
         Pages.find({
             sort: {
-                createdAt: 1
+                updatedAt: 1
             },
             query: {}
         }, function (err, pages) {
