@@ -81,11 +81,13 @@ module.exports = function (ctx, container, options, done) {
         };
 
         Vehicles.find({
-            sort: {
-                updatedAt: 1
-            },
             query: {
-                status: 'reviewing'
+                sort: {
+                    updatedAt: 1
+                },
+                query: {
+                    status: 'reviewing'
+                }
             },
             resolution: '288x162'
         }, function (err, vehicles) {

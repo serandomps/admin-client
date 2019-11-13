@@ -10,10 +10,12 @@ dust.loadSource(dust.compile(require('./template'), 'admin-home'));
 module.exports = function (ctx, container, options, done) {
     var sandbox = container.sandbox;
     Vehicles.find({
-        sort: {
-            updatedAt: -1
+        query: {
+            sort: {
+                updatedAt: -1
+            },
+            count: 2
         },
-        count: 2,
         resolution: '800x450'
     }, function (err, vehicles) {
         if (err) return done(err);
