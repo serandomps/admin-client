@@ -63,7 +63,8 @@ module.exports = function (ctx, container, options, done) {
             vehicle._.contactOK = o.contact && o.contact.status === 'published';
             vehicle._.location = o.location;
             vehicle._.locationOK = o.location && o.location.status === 'published';
-            vehicle._.vehicleOK = (vehicle.status === 'published' || (vehicle._.locationOK && vehicle._.contactOK));
+            vehicle._.vehicleReady = vehicle._.locationOK && vehicle._.contactOK;
+            vehicle._.vehicleOK = vehicle.status === 'published';
             /*vehicle._.picks = [
                 {label: 'Published', value: 'published'},
                 {label: 'Unpublished', value: 'unpublished'}
