@@ -2,10 +2,10 @@ var dust = require('dust')();
 var serand = require('serand');
 var utils = require('utils');
 var form = require('form');
-var contacts = require('model-contacts');
-var Contacts = contacts.service;
+var realestates = require('model-realestates');
+var RealEstates = realestates.service;
 
-dust.loadSource(dust.compile(require('./template'), 'admin-contacts'));
+dust.loadSource(dust.compile(require('./template'), 'admin-realestates'));
 
 var from = function (o) {
     var oo = {};
@@ -47,13 +47,13 @@ var configs = {
                         if (err) {
                             return console.error(err);
                         }
-                        serand.redirect('/manage-contacts?' + utils.toQuery(query));
+                        serand.redirect('/manage-realestates?' + utils.toQuery(query));
                     });
                 }
             }, done);
         }
     }
-};
+}
 
 module.exports = function (ctx, container, options, done) {
     var sandbox = container.sandbox;
@@ -61,23 +61,45 @@ module.exports = function (ctx, container, options, done) {
         if (err) {
             return done(err);
         }
-        Contacts.find({
-            sort: {
-                updatedAt: 1
-            },
-            query: {
-                status: 'reviewing'
+        groups = _.keyBy(groups, 'name');
+
+        var permitted = function () {
+            var permissions = {}
+            var matcher = [{
+                group: groups.public.id,
+                action: {
+                    $in: ['read']
+                }
+            }]
+            var status = options.query && options.query.status || 'pending';
+            if (status === 'pending') {
+                permissions.$nor = matcher;
+                return permissions;
             }
-        }, function (err, contacts) {
+            permissions.$or = matcher;
+            return permissions;
+        };
+
+        RealEstates.find({
+            query: {
+                sort: {
+                    updatedAt: 1
+                },
+                query: {
+                    status: 'reviewing'
+                }
+            },
+            resolution: '288x162'
+        }, function (err, realestates) {
             if (err) return done(err);
-            dust.render('admin-contacts', serand.pack({
+            dust.render('admin-realestates', serand.pack({
                 _: {
                     statuses: [
                         {label: 'Pending', value: 'pending'},
                         {label: 'Approved', value: 'approved'}
                     ]
                 },
-                contacts: contacts
+                realestates: realestates
             }, container), function (err, out) {
                 if (err) {
                     return done(err);
@@ -91,7 +113,7 @@ module.exports = function (ctx, container, options, done) {
                     }
                     done(null, {
                         clean: function () {
-                            $('.admin-contacts', sandbox).remove();
+                            $('.admin-realestates', sandbox).remove();
                         }
                     });
                 });

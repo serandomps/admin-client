@@ -2,7 +2,7 @@ var dust = require('dust')();
 var serand = require('serand');
 var utils = require('utils');
 var form = require('form');
-var pages = require('pages');
+var pages = require('model-pages');
 var Pages = pages.service;
 
 dust.loadSource(dust.compile(require('./template'), 'admin-pages'));

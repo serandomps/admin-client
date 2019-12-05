@@ -1,0 +1,37 @@
+<div class="admin-client-realestates-review mb-5">
+    <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md-9">
+            <h1 class="title text-center">{_.title|s}</h1>
+            <div class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls mt-3">
+                <div class="slides"></div>
+                <h3 class="title"></h3>
+                <a class="prev">‹</a>
+                <a class="next">›</a>
+                <a class="play-pause"></a>
+                <ol class="indicator"></ol>
+            </div>
+            <div class="details">
+                {>"admin-client-realestates-review-details"/}
+            </div>
+            <div class="location"></div>
+        </div>
+        <div class="col-md"></div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md"></div>
+        <div class="col-md-9">
+            <div class="text-center">
+                <h3>Everything looks good ?
+                    <button type="button" class="realestate-ok btn btn-link{?_.realestateOK} text-success{/_.realestateOK}{^_.realestateReady} disabled{/_.realestateReady}">
+                        <i class="far fa-check-circle fa-3x"></i>
+                    </button>
+                    {^_.realestateOK}
+                    <button type="button" class="realestate-bad btn btn-link text-danger"><i class="far fa-times-circle fa-3x"></i></button>
+                    {/_.realestateOK}
+                </h3>
+            </div>
+        </div>
+        <div class="col-md"></div>
+    </div>
+</div>

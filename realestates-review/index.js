@@ -1,10 +1,10 @@
 var dust = require('dust')();
 var serand = require('serand');
 var utils = require('utils');
-var Vehicle = require('model-vehicles').service;
+var RealEstates = require('model-realestates').service;
 
-dust.loadSource(dust.compile(require('./template'), 'admin-client-vehicles-review'));
-dust.loadSource(dust.compile(require('./details'), 'admin-client-vehicles-review-details'));
+dust.loadSource(dust.compile(require('./template'), 'admin-client-realestates-review'));
+dust.loadSource(dust.compile(require('./details'), 'admin-client-realestates-review-details'));
 
 var findLocation = function (id, done) {
     $.ajax({
@@ -36,11 +36,11 @@ var findContact = function (id, done) {
 
 module.exports = function (ctx, container, options, done) {
     var sandbox = container.sandbox;
-    Vehicle.findOne({id: options.id, resolution: '800x450'}, function (err, vehicle) {
+    RealEstates.findOne({id: options.id, resolution: '800x450'}, function (err, realestate) {
         if (err) return done(err);
         async.parallel({
             location: function (found) {
-                findLocation(vehicle.location, function (err, location) {
+                findLocation(realestate.location, function (err, location) {
                     if (err) {
                         console.error(err);
                     }
@@ -48,7 +48,7 @@ module.exports = function (ctx, container, options, done) {
                 });
             },
             contact: function (found) {
-                findContact(vehicle.contact, function (err, contact) {
+                findContact(realestate.contact, function (err, contact) {
                     if (err) {
                         console.error(err);
                     }
@@ -59,18 +59,18 @@ module.exports = function (ctx, container, options, done) {
             if (err) {
                 return done(err);
             }
-            vehicle._.contact = o.contact;
-            vehicle._.contactOK = o.contact && o.contact.status === 'published';
-            vehicle._.location = o.location;
-            vehicle._.locationOK = o.location && o.location.status === 'published';
-            vehicle._.vehicleReady = vehicle._.locationOK && vehicle._.contactOK;
-            vehicle._.vehicleOK = vehicle.status === 'published';
-            /*vehicle._.picks = [
+            realestate._.contact = o.contact;
+            realestate._.contactOK = o.contact && o.contact.status === 'published';
+            realestate._.location = o.location;
+            realestate._.locationOK = o.location && o.location.status === 'published';
+            realestate._.realestateReady = realestate._.locationOK && realestate._.contactOK;
+            realestate._.realestateOK = realestate.status === 'published';
+            /*realestate._.picks = [
                 {label: 'Published', value: 'published'},
                 {label: 'Unpublished', value: 'unpublished'}
             ];*/
-            vehicle = serand.pack(vehicle, container);
-            dust.render('admin-client-vehicles-review', vehicle, function (err, out) {
+            realestate = serand.pack(realestate, container);
+            dust.render('admin-client-realestates-review', realestate, function (err, out) {
                 if (err) {
                     return done(err);
                 }
@@ -89,7 +89,7 @@ module.exports = function (ctx, container, options, done) {
                         thiz.removeClass('text-primary').addClass('text-success')
                             .siblings('.location-bad').addClass('hidden');
                         if (o.contact.status === 'published') {
-                            $('.vehicle-ok', sandbox).removeClass('disabled');
+                            $('.realestate-ok', sandbox).removeClass('disabled');
                         }
                     });
                 });
@@ -106,36 +106,36 @@ module.exports = function (ctx, container, options, done) {
                         thiz.removeClass('text-primary').addClass('text-success')
                             .siblings('.contact-bad').addClass('hidden');
                         if (o.location.status === 'published') {
-                            $('.vehicle-ok', sandbox).removeClass('disabled');
+                            $('.realestate-ok', sandbox).removeClass('disabled');
                         }
                     });
                 });
 
-                $('.vehicle-ok', sandbox).on('click', function () {
+                $('.realestate-ok', sandbox).on('click', function () {
                     var thiz = $(this);
                     utils.loading();
-                    utils.publish('autos', 'vehicles', vehicle, function (err) {
+                    utils.publish('realestates', 'realestates', realestate, function (err) {
                         utils.loaded();
                         if (err) {
                             return console.error(err);
                         }
                         thiz.removeClass('text-primary').addClass('text-success')
-                            .siblings('.vehicle-bad').addClass('hidden');
+                            .siblings('.realestate-bad').addClass('hidden');
 
                         setTimeout(function () {
-                            serand.redirect('/manage-vehicles');
+                            serand.redirect('/manage-realestates');
                         }, 500);
                     });
                 });
 
                 done(null, {
                     clean: function () {
-                        $('.admin-client-vehicles-review', sandbox).remove();
+                        $('.admin-client-realestates-review', sandbox).remove();
                     },
                     ready: function () {
                         var i;
                         var o = [];
-                        var images = vehicle._.images;
+                        var images = realestate._.images;
                         var length = images.length;
                         var image;
                         for (i = 0; i < length; i++) {

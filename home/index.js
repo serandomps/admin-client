@@ -1,7 +1,7 @@
 var dust = require('dust')();
 var serand = require('serand');
 var utils = require('utils');
-var Vehicles = require('vehicles').service;
+var Vehicles = require('model-vehicles').service;
 
 require('gallery');
 

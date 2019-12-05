@@ -13,15 +13,15 @@
     </tr>
     </thead>
     <tbody>
-    {#vehicles}
+    {#realestates}
     <tr>
-        <td>{_.make.title} {_.model.title}<small class="text-muted"> {manufacturedAt|year}</small></td>
+        <td>{_.title|s}</td>
         <td><span class="badge badge-secondary text-capitalize pull-left">{status}</span></td>
-        <td><a href="/vehicles/{id}">View</a></td>
-        <td><a href="/vehicles/{id}/edit">Edit</a></td>
-        <td><a href="/vehicles/{id}/review">Review</a></td>
-        <td><a href="/transits/{id}?domain=accounts&model=vehicles&id={id}&status={status}&location=/manage-configs">Transit</a></td>
+        <td><a href="/realestates/{id}">View</a></td>
+        <td><a href="/realestates/{id}/edit">Edit</a></td>
+        <td><a href="/realestates/{id}/review">Review</a></td>
+        <td><a href="/transits/{id}?domain=accounts&model=realestates&id={id}&status={status}&location=/manage-configs">Transit</a></td>
     </tr>
-    {/vehicles}
+    {/realestates}
     </tbody>
 </table>

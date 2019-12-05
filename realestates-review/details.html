@@ -1,109 +1,14 @@
-<div class="row mt-4">
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-calendar fa-fw fa-2x"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Year</h4>
-                <span class="h4 text-capitalize">{manufacturedAt|year}</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-tachometer-alt fa-fw fa-2x"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Mileage</h4>
-                <span class="h4 text-capitalize">{mileage}</span>
-                <small class="text-muted">km</small>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-cogs fa-fw fa-2x"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Transmission</h4>
-                <span class="h4 text-capitalize">{transmission}</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-money-check-alt fa-fw fa-2x"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Price</h4>
-                <span class="h4 text-capitalize">{price}</span>
-                <small class="text-muted">LKR</small>
-            </div>
-        </div>
-    </div>
+{?_.annex}{>"model-realestates-findone-annex"/}{/_.annex}
+{?_.apartment}{>"model-realestates-findone-apartment"/}{/_.apartment}
+{?_.building}{>"model-realestates-findone-building"/}{/_.building}
+{?_.house}{>"model-realestates-findone-house"/}{/_.house}
+{?_.land}{>"model-realestates-findone-land"/}{/_.land}
+{?_.room}{>"model-realestates-findone-room"/}{/_.room}
+{?description}
+<div class="mt-md-2">
+    <div class="text-muted">{description|s}</div>
 </div>
-<hr/>
-<div class="row mt-4">
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-building fa-fw"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Make</h4>
-                <span class="text-capitalize">{_.make.title}</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-tag fa-fw"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Model</h4>
-                <span class="text-capitalize">{_.model.title}</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-battery-full fa-fw"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Condition</h4>
-                <span class="text-capitalize">{condition}</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-tint fa-fw"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Color</h4>
-                <span class="text-capitalize">{color}</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-gas-pump fa-fw"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Fuel</h4>
-                <span class="text-capitalize">{fuel}</span>
-            </div>
-        </div>
-    </div>
-</div>
+{/description}
 <div class="row mt-5">
     <div class="col-md">
         <div class="card border-0">

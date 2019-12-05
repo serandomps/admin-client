@@ -2,7 +2,7 @@ var dust = require('dust')();
 var serand = require('serand');
 var utils = require('utils');
 var form = require('form');
-var vehicles = require('vehicles');
+var vehicles = require('model-vehicles');
 var Vehicles = vehicles.service;
 
 dust.loadSource(dust.compile(require('./template'), 'admin-vehicles'));
