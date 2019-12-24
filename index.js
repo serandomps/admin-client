@@ -7,6 +7,7 @@ exports.contacts = require('./contacts');
 exports.locations = require('./locations');
 exports.configs = require('./configs');
 exports.pages = require('./pages');
+exports.messages = require('./messages');
 exports['vehicles-review'] = require('./vehicles-review');
 exports['realestates-review'] = require('./realestates-review');
 exports['locations-review'] = require('./locations-review');

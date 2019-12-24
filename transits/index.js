@@ -56,7 +56,8 @@ var configs = {
 module.exports = function (ctx, container, options, done) {
     var sandbox = container.sandbox;
     var status = options.status;
-    utils.workflow('model', function (err, workflow) {
+    var workflow = options.workflow || 'model-messages';
+    utils.workflow(workflow, function (err, workflow) {
         if (err) {
             return done(err);
         }
@@ -67,7 +68,7 @@ module.exports = function (ctx, container, options, done) {
             status: options.status,
             location: options.location,
             actions: transitions
-        }, container)
+        }, container);
         dust.render('admin-transits', o, function (err, out) {
             if (err) {
                 return done(err);
