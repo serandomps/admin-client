@@ -32,8 +32,8 @@ var render = function (token, done) {
 
 var filter = function (options, token, links) {
     links.fixed = true;
-    links.background = 'bg-secondary';
-    links.color = 'navbar-dark';
+    links.background = 'bg-light';
+    links.color = 'navbar-light';
     if (token) {
         return links;
     }
