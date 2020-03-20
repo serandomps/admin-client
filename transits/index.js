@@ -56,7 +56,7 @@ var configs = {
 module.exports = function (ctx, container, options, done) {
     var sandbox = container.sandbox;
     var status = options.status;
-    var workflow = options.workflow || 'model-messages';
+    var workflow = options.workflow || 'model';
     utils.workflow(workflow, function (err, workflow) {
         if (err) {
             return done(err);
