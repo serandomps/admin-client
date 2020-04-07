@@ -1,12 +1,222 @@
-{?_.annex}{>"model-realestates-findone-annex"/}{/_.annex}
-{?_.apartment}{>"model-realestates-findone-apartment"/}{/_.apartment}
-{?_.building}{>"model-realestates-findone-building"/}{/_.building}
-{?_.house}{>"model-realestates-findone-house"/}{/_.house}
-{?_.land}{>"model-realestates-findone-land"/}{/_.land}
-{?_.room}{>"model-realestates-findone-room"/}{/_.room}
+<div class="d-none d-xl-flex row mt-4 text-nowrap">
+    {?bedrooms}
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-bed fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Bedrooms</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark">{bedrooms}</span>
+            </div>
+        </div>
+    </div>
+    {/bedrooms}
+    {?bathrooms}
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-restroom fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Bathrooms</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark">{bathrooms}</span>
+            </div>
+        </div>
+    </div>
+    {/bathrooms}
+    {?parking}
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-parking fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Parking</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark">{parking}</span>
+            </div>
+        </div>
+    </div>
+    {/parking}
+    {?extent}
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-arrows-alt-h fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Extent</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark mr-1">{extent}</span>
+                <small class="text-muted">p</small>
+            </div>
+        </div>
+    </div>
+    {/extent}
+    {?floors}
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-bars fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Floors</h4>
+                <span class="h5 text-capitalize font-weight-bold">{floors}</span>
+            </div>
+        </div>
+    </div>
+    {/floors}
+    {?area}
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-square fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Area</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark mr-1">{area}</span>
+                <small class="text-muted">ft<sup>2</sup></small>
+            </div>
+        </div>
+    </div>
+    {/area}
+    {?residential}
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-home fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Residential</h4>
+                <span class="h5 text-capitalize font-weight-bold">Yes</span>
+            </div>
+        </div>
+    </div>
+    {/residential}
+    {?commercial}
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-building fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Commercial</h4>
+                <span class="h5 text-capitalize font-weight-bold">Yes</span>
+            </div>
+        </div>
+    </div>
+    {/commercial}
+</div>
+<div class="row mt-4 text-nowrap d-xl-none">
+    {?bedrooms}
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-bed fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Bedrooms</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark">{bedrooms}</span>
+            </div>
+        </div>
+    </div>
+    {/bedrooms}
+    {?bathrooms}
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-restroom fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Bathrooms</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark">{bathrooms}</span>
+            </div>
+        </div>
+    </div>
+    {/bathrooms}
+    {?parking}
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-parking fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Parking</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark">{parking}</span>
+            </div>
+        </div>
+    </div>
+    {/parking}
+    {?extent}
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-arrows-alt-h fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Extent</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark mr-1">{extent}</span>
+                <small class="text-muted">p</small>
+            </div>
+        </div>
+    </div>
+    {/extent}
+    {?floors}
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-bars fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Floors</h4>
+                <span class="h5 text-capitalize font-weight-bold">{floors}</span>
+            </div>
+        </div>
+    </div>
+    {/floors}
+    {?area}
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-square fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Area</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark mr-1">{area}</span>
+                <small class="text-muted">ft<sup>2</sup></small>
+            </div>
+        </div>
+    </div>
+    {/area}
+    {?residential}
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-home fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Residential</h4>
+                <span class="h5 text-capitalize font-weight-bold">Yes</span>
+            </div>
+        </div>
+    </div>
+    {/residential}
+    {?commercial}
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <span class="fas fa-building fa-fw text-muted"></span>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Commercial</h4>
+                <span class="h5 text-capitalize font-weight-bold">Yes</span>
+            </div>
+        </div>
+    </div>
+    {/commercial}
+</div>
 {?description}
 <div class="mt-md-2">
-    <div class="text-muted">{description|s}</div>
+    <div class="text-dark">{description|s}</div>
 </div>
 {/description}
 <div class="row mt-5">

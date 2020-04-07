@@ -36,7 +36,7 @@ var findContact = function (id, done) {
 
 module.exports = function (ctx, container, options, done) {
     var sandbox = container.sandbox;
-    Vehicle.findOne({id: options.id, resolution: '800x450'}, function (err, vehicle) {
+    Vehicle.findOne({id: options.id}, function (err, vehicle) {
         if (err) return done(err);
         async.parallel({
             location: function (found) {
@@ -65,6 +65,7 @@ module.exports = function (ctx, container, options, done) {
             vehicle._.locationOK = o.location && o.location.status === 'published';
             vehicle._.vehicleReady = vehicle._.locationOK && vehicle._.contactOK;
             vehicle._.vehicleOK = vehicle.status === 'published';
+            vehicle._.condition = vehicle.condition.replace(/-/ig, ' ');
             /*vehicle._.picks = [
                 {label: 'Published', value: 'published'},
                 {label: 'Unpublished', value: 'unpublished'}
@@ -141,8 +142,8 @@ module.exports = function (ctx, container, options, done) {
                         for (i = 0; i < length; i++) {
                             image = images[i];
                             o.push({
-                                href: image.url,
-                                thumbnail: image.url
+                                href: image.x800,
+                                thumbnail: image.x160
                             });
                         }
                         blueimp.Gallery(o, {

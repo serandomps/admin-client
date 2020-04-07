@@ -1,109 +1,170 @@
-<div class="row mt-4">
-    <div class="col-md mb-3">
+<div class="d-none d-xl-flex row mt-4 text-nowrap">
+    <div class="col-md mb-4">
         <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-calendar fa-fw fa-2x"></span>
+            <span class="btn rounded-circle">
+              <i class="fas fa-battery-full fa-fw text-muted"></i>
             </span>
             <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Year</h4>
-                <span class="h4 text-capitalize">{manufacturedAt|year}</span>
+                <h4 class="h6 text-secondary mb-0 mt-0">Condition</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark">{_.condition}</span>
             </div>
         </div>
     </div>
-    <div class="col-md mb-3">
+    <div class="col-md mb-4">
         <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-tachometer-alt fa-fw fa-2x"></span>
+            <span class="btn rounded-circle">
+              <i class="fas fa-tachometer-alt fa-fw text-muted"></i>
             </span>
             <div class="media-body">
                 <h4 class="h6 text-secondary mb-0 mt-0">Mileage</h4>
-                <span class="h4 text-capitalize">{mileage}</span>
+                <span class="h5 text-capitalize font-weight-bold text-dark mr-1">{mileage|numeral}</span>
                 <small class="text-muted">km</small>
             </div>
         </div>
     </div>
-    <div class="col-md mb-3">
+    <div class="col-md mb-4">
         <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-cogs fa-fw fa-2x"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Transmission</h4>
-                <span class="h4 text-capitalize">{transmission}</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-money-check-alt fa-fw fa-2x"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Price</h4>
-                <span class="h4 text-capitalize">{price|numeral}</span>
-                <small class="text-muted">LKR</small>
-            </div>
-        </div>
-    </div>
-</div>
-<hr/>
-<div class="row mt-4">
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-building fa-fw"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Make</h4>
-                <span class="text-capitalize">{_.make.title}</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-tag fa-fw"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Model</h4>
-                <span class="text-capitalize">{_.model.title}</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-battery-full fa-fw"></span>
-            </span>
-            <div class="media-body">
-                <h4 class="h6 text-secondary mb-0 mt-0">Condition</h4>
-                <span class="text-capitalize">{condition}</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md mb-3">
-        <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-tint fa-fw"></span>
+            <span class="btn rounded-circle">
+              <i class="fas fa-palette fa-fw text-muted"></i>
             </span>
             <div class="media-body">
                 <h4 class="h6 text-secondary mb-0 mt-0">Color</h4>
-                <span class="text-capitalize">{color}</span>
+                <span class="h5 text-capitalize font-weight-bold text-dark mr-1">{color}</span>
             </div>
         </div>
     </div>
-    <div class="col-md mb-3">
+    <div class="col-md mb-4">
         <div class="media">
-            <span class="btn rounded-circle mr-2">
-              <span class="fas fa-gas-pump fa-fw"></span>
+            <span class="btn rounded-circle">
+              <i class="fas fa-gas-pump fa-fw text-muted"></i>
             </span>
             <div class="media-body">
                 <h4 class="h6 text-secondary mb-0 mt-0">Fuel</h4>
-                <span class="text-capitalize">{fuel}</span>
+                <span class="h5 text-capitalize font-weight-bold">{fuel}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <i class="fas fa-cog fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Drive Type</h4>
+                <span class="h5 text-capitalize font-weight-bold">{_.driveType}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <i class="fas fa-flask fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Engine</h4>
+                <span class="h5 text-capitalize font-weight-bold mr-1">{engine|numeral}</span>
+                <small class="text-muted">cc</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <i class="fas fa-cogs fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Transmission</h4>
+                <span class="h5 text-capitalize font-weight-bold">{transmission}</span>
             </div>
         </div>
     </div>
 </div>
+<div class="row mt-4 text-nowrap d-xl-none">
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <i class="fas fa-battery-full fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Condition</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark">{_.condition}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <i class="fas fa-tachometer-alt fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Mileage</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark mr-1">{mileage}</span>
+                <small class="text-muted">km</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <i class="fas fa-palette fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Color</h4>
+                <span class="h5 text-capitalize font-weight-bold text-dark mr-1">{color}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <i class="fas fa-gas-pump fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Fuel</h4>
+                <span class="h5 text-capitalize font-weight-bold">{fuel}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <i class="fas fa-cog fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Drive Type</h4>
+                <span class="h5 text-capitalize font-weight-bold">{_.driveType}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <i class="fas fa-flask fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Engine</h4>
+                <span class="h5 text-capitalize font-weight-bold mr-1">{engine}</span>
+                <small class="text-muted">cc</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle">
+              <i class="fas fa-cogs fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h6 text-secondary mb-0 mt-0">Transmission</h4>
+                <span class="h5 text-capitalize font-weight-bold">{transmission}</span>
+            </div>
+        </div>
+    </div>
+</div>
+{?description}
+<div class="mt-md-2">
+    <div class="text-dark">{description|s}</div>
+</div>
+{/description}
 <div class="row mt-5">
     <div class="col-md">
         <div class="card border-0">

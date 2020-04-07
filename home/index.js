@@ -15,8 +15,7 @@ module.exports = function (ctx, container, options, done) {
                 updatedAt: -1
             },
             count: 2
-        },
-        resolution: '800x450'
+        }
     }, function (err, vehicles) {
         if (err) return done(err);
         dust.render('admin-home', serand.pack(vehicles, container), function (err, out) {
@@ -34,7 +33,7 @@ module.exports = function (ctx, container, options, done) {
                         var images = vehicle._.images || [];
                         images.forEach(function (image) {
                             o.push({
-                                href: image.url
+                                href: image.x800
                             });
                         });
                     });
