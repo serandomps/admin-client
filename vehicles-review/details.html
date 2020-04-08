@@ -273,14 +273,13 @@
                             {/_.contactOK}
                         </h4>
                         <div class="model-contacts-info">
-                            {?_.contact.phones}
+                            {?_.contact.phone}
                             <div class="d-flex justify-content-start">
-                                <div class="p-1"><i class="fas fa-phone fa-fw"></i></div>
-                                {#_.contact.phones}
-                                <div class="p-1">{.}</div>
-                                {/_.contact.phones}
+                                <div class="p-1">
+                                    <i class="fas fa-phone fa-fw"></i>{_.contact.phone}
+                                </div>
                             </div>
-                            {/_.contact.phones}
+                            {/_.contact.phone}
                             {?_.contact.email}
                             <div class="d-flex justify-content-start">
                                 <div class="p-1">
