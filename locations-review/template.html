@@ -10,91 +10,53 @@
 <div class="details row">
     <div class="col-md"></div>
     <div class="col-md">
-    {?phones}
-    <div class="d-flex justify-content-start mb-1">
-        <div class="d-inline mr-2"><i class="fas fa-phone"></i></div>
-        <div class="d-inline overflow-hidden">
-            {#phones}
-            {.}
-            {/phones}
+        <div class="model-locations-find-body text-dark">
+            {?line1}
+            <div class="d-flex justify-content-start mb-1">
+                <div class="d-inline overflow-hidden">{line1}</div>
+            </div>
+            {/line1}
+            {?line2}
+            <div class="d-flex justify-content-start mb-1">
+                <div class="d-inline overflow-hidden">{line2}</div>
+            </div>
+            {/line2}
+            {?city}
+            <div class="d-flex justify-content-start mb-1">
+                <div class="d-inline overflow-hidden">{city}</div>
+            </div>
+            {/city}
+            {?district}
+            <div class="d-flex justify-content-start mb-1">
+                <div class="d-inline overflow-hidden">{district}</div>
+            </div>
+            {/district}
+            {?province}
+            <div class="d-flex justify-content-start mb-1">
+                <div class="d-inline overflow-hidden">{province}</div>
+            </div>
+            {/province}
+            {?state}
+            <div class="d-flex justify-content-start mb-1">
+                <div class="d-inline overflow-hidden">{state}</div>
+            </div>
+            {/state}
+            {?country}
+            <div class="d-flex justify-content-start mb-1">
+                <div class="d-inline overflow-hidden">{country}</div>
+            </div>
+            {/country}
+            {?latitude}
+            <div class="d-flex justify-content-start mb-1">
+                <div class="d-inline overflow-hidden">{latitude}</div>
+            </div>
+            {/latitude}
+            {?longitude}
+            <div class="d-flex justify-content-start mb-1">
+                <div class="d-inline overflow-hidden">{longitude}</div>
+            </div>
+            {/longitude}
         </div>
-    </div>
-    {/phones}
-    {?email}
-    <div class="d-flex justify-content-start mb-1">
-        <div class="d-inline mr-2"><i class="fas fa-envelope"></i></div>
-        <div class="d-inline overflow-hidden">{email}</div>
-    </div>
-    {/email}
-    {?viber}
-    <div class="d-flex justify-content-start mb-1">
-        <div class="d-inline mr-2"><i class="fab fa-viber"></i></div>
-        <div class="d-inline overflow-hidden">{viber}</div>
-    </div>
-    {/viber}
-    {?whatsapp}
-    <div class="d-flex justify-content-start mb-1">
-        <div class="d-inline mr-2"><i class="fab fa-whatsapp"></i></div>
-        <div class="d-inline overflow-hidden">{whatsapp}</div>
-    </div>
-    {/whatsapp}
-    {?messenger}
-    <div class="d-flex justify-content-start mb-1">
-        <div class="d-inline mr-2"><i class="fab fa-facebook-messenger"></i></div>
-        <div class="d-inline overflow-hidden">{messenger}</div>
-    </div>
-    {/messenger}
-    {?skype}
-    <div class="d-flex justify-content-start mb-1">
-        <div class="d-inline mr-2"><i class="fab fa-skype"></i></div>
-        <div class="d-inline overflow-hidden">{skype}</div>
-    </div>
-    {/skype}
     </div>
     <div class="col-md"></div>
 </div>
-<!--<div class="card">
-    <div class="card-header">{name}</div>
-    <div class="card-body">
-        {?phones}
-        <div class="d-flex justify-content-start mb-1">
-            <div class="d-inline mr-2"><i class="fas fa-phone"></i></div>
-            <div class="d-inline overflow-hidden">
-                {#phones}
-                {.}
-                {/phones}
-            </div>
-        </div>
-        {/phones}
-        {?email}
-        <div class="d-flex justify-content-start mb-1">
-            <div class="d-inline mr-2"><i class="fas fa-envelope"></i></div>
-            <div class="d-inline overflow-hidden">{email}</div>
-        </div>
-        {/email}
-        {?viber}
-        <div class="d-flex justify-content-start mb-1">
-            <div class="d-inline mr-2"><i class="fab fa-viber"></i></div>
-            <div class="d-inline overflow-hidden">{viber}</div>
-        </div>
-        {/viber}
-        {?whatsapp}
-        <div class="d-flex justify-content-start mb-1">
-            <div class="d-inline mr-2"><i class="fab fa-whatsapp"></i></div>
-            <div class="d-inline overflow-hidden">{whatsapp}</div>
-        </div>
-        {/whatsapp}
-        {?messenger}
-        <div class="d-flex justify-content-start mb-1">
-            <div class="d-inline mr-2"><i class="fab fa-facebook-messenger"></i></div>
-            <div class="d-inline overflow-hidden">{messenger}</div>
-        </div>
-        {/messenger}
-        {?skype}
-        <div class="d-flex justify-content-start mb-1">
-            <div class="d-inline mr-2"><i class="fab fa-skype"></i></div>
-            <div class="d-inline overflow-hidden">{skype}</div>
-        </div>
-        {/skype}
-    </div>
-</div>-->
