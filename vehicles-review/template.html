@@ -2,8 +2,13 @@
     <div class="row">
         <div class="col-md"></div>
         <div class="col-md-9">
-            <h1 class="title text-center">{?id}{_.make.title} {_.model.title} {manufacturedAt|year}{:else}Create your
-                vehicle{/id}</h1>
+            <h1 class="title text-center font-weight-bolder">
+                {?id}
+                {_.make.title} {_.model.title}<span class="text-warning"> {edition}</span> {manufacturedAt|year}
+                {:else}
+                Create your vehicle
+                {/id}
+            </h1>
             <div class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls mt-3">
                 <div class="slides"></div>
                 <h3 class="title"></h3>
