@@ -9,7 +9,7 @@ dust.loadSource(dust.compile(require('./details'), 'admin-client-realestates-rev
 var findLocation = function (id, done) {
     $.ajax({
         method: 'GET',
-        url: utils.resolve('accounts:///apis/v/locations/' + id),
+        url: utils.resolve('apis:///v/locations/' + id),
         dataType: 'json',
         success: function (data) {
             done(null, data);
@@ -23,7 +23,7 @@ var findLocation = function (id, done) {
 var findContact = function (id, done) {
     $.ajax({
         method: 'GET',
-        url: utils.resolve('accounts:///apis/v/contacts/' + id),
+        url: utils.resolve('apis:///v/contacts/' + id),
         dataType: 'json',
         success: function (data) {
             done(null, data);
@@ -80,7 +80,7 @@ module.exports = function (ctx, container, options, done) {
                 $('.location-ok', sandbox).on('click', function () {
                     var thiz = $(this);
                     utils.loading();
-                    utils.publish('accounts', 'locations', o.location, function (err) {
+                    utils.publish('locations', o.location, function (err) {
                         utils.loaded();
                         if (err) {
                             return console.error(err);
@@ -97,7 +97,7 @@ module.exports = function (ctx, container, options, done) {
                 $('.contact-ok', sandbox).on('click', function () {
                     var thiz = $(this);
                     utils.loading();
-                    utils.publish('accounts', 'contacts', o.contact, function (err) {
+                    utils.publish('contacts', o.contact, function (err) {
                         utils.loaded();
                         if (err) {
                             return console.error(err);
@@ -114,7 +114,7 @@ module.exports = function (ctx, container, options, done) {
                 $('.realestate-ok', sandbox).on('click', function () {
                     var thiz = $(this);
                     utils.loading();
-                    utils.publish('realestates', 'realestates', realestate, function (err) {
+                    utils.publish('realestates', realestate, function (err) {
                         utils.loaded();
                         if (err) {
                             return console.error(err);

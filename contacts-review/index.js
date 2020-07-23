@@ -8,7 +8,7 @@ dust.loadSource(dust.compile(require('./actions.html'), 'admin-client-contacts-r
 var find = function (id, done) {
     $.ajax({
         method: 'GET',
-        url: utils.resolve('accounts:///apis/v/contacts/' + id),
+        url: utils.resolve('apis:///v/contacts/' + id),
         dataType: 'json',
         success: function (data) {
             done(null, data);
@@ -34,7 +34,7 @@ module.exports = function (ctx, container, options, done) {
             $('.contact-ok', sandbox).on('click', function () {
                 var thiz = $(this);
                 utils.loading();
-                utils.publish('accounts', 'contacts', contact, function (err) {
+                utils.publish('contacts', contact, function (err) {
                     utils.loaded();
                     if (err) {
                         return console.error(err);

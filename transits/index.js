@@ -78,7 +78,7 @@ module.exports = function (ctx, container, options, done) {
                 var thiz = $(this);
                 var action = thiz.data('action');
                 utils.loading();
-                utils.transit(options.domain, options.model, options.id, action, function (err) {
+                utils.transit(options.model, options.id, action, function (err) {
                     utils.loaded();
                     if (err) {
                         return console.error(err);

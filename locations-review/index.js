@@ -8,7 +8,7 @@ dust.loadSource(dust.compile(require('./actions.html'), 'admin-client-locations-
 var find = function (id, done) {
     $.ajax({
         method: 'GET',
-        url: utils.resolve('accounts:///apis/v/locations/' + id),
+        url: utils.resolve('apis:///v/locations/' + id),
         dataType: 'json',
         success: function (data) {
             done(null, data);
@@ -34,7 +34,7 @@ module.exports = function (ctx, container, options, done) {
             $('.location-ok', sandbox).on('click', function () {
                 var thiz = $(this);
                 utils.loading();
-                utils.publish('accounts', 'locations', contact, function (err) {
+                utils.publish('locations', contact, function (err) {
                     utils.loaded();
                     if (err) {
                         return console.error(err);
