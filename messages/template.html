@@ -1,25 +1,25 @@
-<div class="manage">
-    <form class="hidden">
-        {@blocks block="select" id=_.container name="status" value=status options=_.statuses/}
-    </form>
-    <table class="table table-bordered table-hover">
-        <thead>
-        <tr>
-            <th scope="col">Type</th>
-            <th scope="col">Status</th>
-            <th scope="col">View</th>
-            <th scope="col">Mark Read</th>
-        </tr>
-        </thead>
-        <tbody>
-        {#messages}
-        <tr>
-            <td>{type}</td>
-            <td><span class="badge badge-secondary text-capitalize pull-left">{status}</span></td>
-            <td><a href="/messages/{id}">View</a></td>
-            <td><a href="/transits/{id}?workflow=model-messages&domain=www&model=messages&id={id}&status={status}&location=/manage-messages">Read</a></td>
-        </tr>
-        {/messages}
-        </tbody>
-    </table>
-</div>
+<form class="hidden">
+    {@blocks block="select" id=_.container name="status" value=status options=_.statuses/}
+</form>
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Status</th>
+        <th scope="col">View</th>
+        <th scope="col">Mark Read</th>
+    </tr>
+    </thead>
+    <tbody>
+    {#messages}
+    <tr>
+        <td>{type}</td>
+        <td><span class="badge badge-secondary text-capitalize pull-left">{status}</span></td>
+        <td><a href="/messages/{id}">View</a></td>
+        <td><a
+            href="/transits/{id}?workflow=model-messages&domain=www&model=messages&id={id}&status={status}&location=/manage-messages">Read</a>
+        </td>
+    </tr>
+    {/messages}
+    </tbody>
+</table>
