@@ -1,6 +1,7 @@
 var serand = require('serand');
 var navigation = require('navigation');
 var utils = require('utils');
+var watcher = require('watcher');
 
 var context;
 
@@ -60,7 +61,7 @@ module.exports = function (ctx, container, options, done) {
     });
 };
 
-utils.on('user', 'ready', function (token) {
+watcher.on('user', 'ready', function (token) {
     ready = true;
     if (!context) {
         return;
